@@ -1,86 +1,212 @@
 [
   {
-    "id": "react",
-    "title": "React",
-    "description": "A JavaScript library for building user interfaces. React makes it painless to create interactive UIs with a component-based architecture.",
-    "url": "https://reactjs.org/",
+    "id": "cursor",
+    "title": "Cursor",
+    "description": "AI-powered code editor that understands your codebase. Features intelligent code completion, chat-based programming, and codebase-wide understanding.",
+    "url": "https://cursor.sh/",
     "assessment": "adopt"
   },
   {
-    "id": "typescript",
-    "title": "TypeScript",
-    "description": "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
-    "url": "https://www.typescriptlang.org/",
+    "id": "github-copilot",
+    "title": "GitHub Copilot",
+    "description": "AI pair programmer that suggests code and entire functions in real-time. Powered by OpenAI Codex with extensive language support.",
+    "url": "https://github.com/features/copilot",
     "assessment": "adopt"
   },
   {
-    "id": "vue",
-    "title": "Vue.js",
-    "description": "The Progressive JavaScript Framework. An incrementally adoptable ecosystem that scales between a library and a full-featured framework.",
-    "url": "https://vuejs.org/",
+    "id": "windsurf",
+    "title": "Windsurf",
+    "description": "AI-first code editor with deep codebase understanding and collaborative AI features. Built for modern development workflows.",
+    "url": "https://codeium.com/windsurf",
+    "assessment": "adopt"
+  },
+  {
+    "id": "codeium",
+    "title": "Codeium",
+    "description": "Free AI-powered code completion and chat assistant. Supports 70+ programming languages with fast inference.",
+    "url": "https://codeium.com/",
     "assessment": "trial"
   },
   {
-    "id": "svelte",
-    "title": "Svelte",
-    "description": "Cybernetically enhanced web apps. A radical new approach to building user interfaces with compile-time optimizations.",
-    "url": "https://svelte.dev/",
+    "id": "tabnine",
+    "title": "Tabnine",
+    "description": "AI assistant for software development with personalized recommendations. Learns from your code patterns and style.",
+    "url": "https://www.tabnine.com/",
+    "assessment": "trial"
+  },
+  {
+    "id": "amazon-codewhisperer",
+    "title": "Amazon CodeWhisperer",
+    "description": "ML-powered coding companion that generates code suggestions in real-time. Trained on billions of lines of code.",
+    "url": "https://aws.amazon.com/codewhisperer/",
     "assessment": "evaluate"
   },
   {
-    "id": "deno",
-    "title": "Deno",
-    "description": "A modern runtime for JavaScript and TypeScript. Secure by default with built-in TypeScript support.",
-    "url": "https://deno.land/",
+    "id": "replit-ghostwriter",
+    "title": "Replit Ghostwriter",
+    "description": "AI pair programmer built into Replit's online IDE. Provides code completion, generation, and debugging assistance.",
+    "url": "https://replit.com/site/ghostwriter",
+    "assessment": "trial"
+  },
+  {
+    "id": "codegpt",
+    "title": "CodeGPT",
+    "description": "VS Code extension that brings ChatGPT capabilities directly to your editor. Code generation, explanation, and refactoring.",
+    "url": "https://marketplace.visualstudio.com/items?itemName=DanielSanMedium.dscodegpt",
     "assessment": "evaluate"
   },
   {
-    "id": "bun",
-    "title": "Bun",
-    "description": "Fast all-in-one JavaScript runtime. Bundle, test, and run JavaScript & TypeScript projects with Bun.",
-    "url": "https://bun.sh/",
+    "id": "claude-dev",
+    "title": "Claude Dev",
+    "description": "VS Code extension powered by Anthropic's Claude AI. Autonomous coding agent that can edit files and run commands.",
+    "url": "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev",
+    "assessment": "trial"
+  },
+  {
+    "id": "continue",
+    "title": "Continue",
+    "description": "Open-source autopilot for VS Code and JetBrains. Supports multiple AI models with customizable workflows.",
+    "url": "https://continue.dev/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "sourcegraph-cody",
+    "title": "Sourcegraph Cody",
+    "description": "AI coding assistant that understands your entire codebase. Provides context-aware answers and code generation.",
+    "url": "https://sourcegraph.com/cody",
+    "assessment": "trial"
+  },
+  {
+    "id": "aider",
+    "title": "Aider",
+    "description": "AI pair programming in your terminal. Uses GPT to help edit code in your existing git repository.",
+    "url": "https://aider.chat/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "copilot-chat",
+    "title": "GitHub Copilot Chat",
+    "description": "Conversational AI assistant integrated with GitHub Copilot. Ask questions about code and get contextual answers.",
+    "url": "https://docs.github.com/en/copilot/github-copilot-chat",
+    "assessment": "adopt"
+  },
+  {
+    "id": "openai-codex",
+    "title": "OpenAI Codex",
+    "description": "AI system that translates natural language to code. Powers GitHub Copilot and other coding assistants.",
+    "url": "https://openai.com/blog/openai-codex",
     "assessment": "aware"
   },
   {
-    "id": "vite",
-    "title": "Vite",
-    "description": "Next generation frontend tooling. Fast build tool with lightning fast HMR and optimized build process.",
-    "url": "https://vitejs.dev/",
-    "assessment": "adopt"
-  },
-  {
-    "id": "turbo",
-    "title": "Turbo",
-    "description": "The high-performance build system for JavaScript and TypeScript codebases. Incremental bundler and build system optimizer.",
-    "url": "https://turbo.build/",
-    "assessment": "trial"
-  },
-  {
-    "id": "astro",
-    "title": "Astro",
-    "description": "The web framework for content-driven websites. Build fast websites with less client-side JavaScript.",
-    "url": "https://astro.build/",
-    "assessment": "evaluate"
-  },
-  {
-    "id": "remix",
-    "title": "Remix",
-    "description": "Full stack web framework focused on web fundamentals and modern UX. Built on React Router with server-side rendering.",
-    "url": "https://remix.run/",
-    "assessment": "trial"
-  },
-  {
-    "id": "qwik",
-    "title": "Qwik",
-    "description": "The HTML-first framework. Designed for the edge with resumability and fine-grained lazy loading.",
-    "url": "https://qwik.builder.io/",
+    "id": "alphacode",
+    "title": "AlphaCode",
+    "description": "DeepMind's AI system for competitive programming. Generates novel solutions to complex programming problems.",
+    "url": "https://alphacode.deepmind.com/",
     "assessment": "aware"
   },
   {
-    "id": "solid",
-    "title": "SolidJS",
-    "description": "Simple and performant reactivity for building user interfaces. Fine-grained reactivity with minimal overhead.",
-    "url": "https://www.solidjs.com/",
+    "id": "intellicode",
+    "title": "IntelliCode",
+    "description": "AI-assisted development in Visual Studio and VS Code. Provides intelligent suggestions based on context.",
+    "url": "https://visualstudio.microsoft.com/services/intellicode/",
+    "assessment": "trial"
+  },
+  {
+    "id": "kite",
+    "title": "Kite",
+    "description": "AI-powered coding assistant with line-of-code completions. Features intelligent snippets and documentation.",
+    "url": "https://www.kite.com/",
+    "assessment": "aware"
+  },
+  {
+    "id": "aicommits",
+    "title": "AICommits",
+    "description": "CLI tool that uses AI to generate meaningful commit messages from your staged changes. Supports multiple AI models.",
+    "url": "https://github.com/Nutlope/aicommits",
     "assessment": "evaluate"
+  },
+  {
+    "id": "chatgpt-code-interpreter",
+    "title": "ChatGPT Code Interpreter",
+    "description": "Advanced coding environment within ChatGPT. Execute code, analyze data, and create applications interactively.",
+    "url": "https://openai.com/blog/chatgpt-plugins",
+    "assessment": "trial"
+  },
+  {
+    "id": "bard-code",
+    "title": "Google Bard",
+    "description": "Google's conversational AI that can generate, debug, and explain code across multiple programming languages.",
+    "url": "https://bard.google.com/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "phind",
+    "title": "Phind",
+    "description": "AI search engine for developers. Get instant answers to coding questions with code examples and explanations.",
+    "url": "https://www.phind.com/",
+    "assessment": "trial"
+  },
+  {
+    "id": "blackbox-ai",
+    "title": "Blackbox AI",
+    "description": "AI-powered coding assistant that helps with code generation, debugging, and optimization across multiple languages.",
+    "url": "https://www.blackbox.ai/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "codiga",
+    "title": "Codiga",
+    "description": "AI-powered static code analysis and code review platform. Automated security and quality checks.",
+    "url": "https://www.codiga.io/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "deepcode",
+    "title": "DeepCode",
+    "description": "AI-powered code review tool that finds bugs and security vulnerabilities. Now part of Snyk.",
+    "url": "https://www.deepcode.ai/",
+    "assessment": "aware"
+  },
+  {
+    "id": "whispersync",
+    "title": "WhisperSync",
+    "description": "AI-powered voice-to-code tool that converts spoken instructions into working code. Supports natural language programming.",
+    "url": "https://whispersync.dev/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "codecomplete",
+    "title": "CodeComplete",
+    "description": "Enterprise AI coding assistant designed for businesses. Self-hosted solution with security and compliance features.",
+    "url": "https://codecomplete.ai/",
+    "assessment": "aware"
+  },
+  {
+    "id": "aixcoder",
+    "title": "aiXcoder",
+    "description": "AI programming assistant with intelligent code completion and generation. Supports multiple IDEs and languages.",
+    "url": "https://www.aixcoder.com/",
+    "assessment": "aware"
+  },
+  {
+    "id": "duet-ai",
+    "title": "Google Cloud Duet AI",
+    "description": "AI-powered collaboration tool for Google Cloud development. Assists with code generation and cloud architecture.",
+    "url": "https://cloud.google.com/duet-ai",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "copilot-x",
+    "title": "GitHub Copilot X",
+    "description": "Next-generation AI developer experience with GPT-4. Enhanced Copilot with chat, voice, and pull request features.",
+    "url": "https://github.com/features/preview/copilot-x",
+    "assessment": "aware"
+  },
+  {
+    "id": "devgpt",
+    "title": "DevGPT",
+    "description": "AI-powered development environment that can build entire applications from natural language descriptions.",
+    "url": "https://devgpt.com/",
+    "assessment": "aware"
   }
 ]
