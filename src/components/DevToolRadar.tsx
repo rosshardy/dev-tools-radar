@@ -243,7 +243,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     blips.append('circle')
       .attr('cx', d => d.position.x)
       .attr('cy', d => d.position.y)
-      .attr('r', 8)
+      .attr('r', 10)
       .attr('fill', d => RING_COLORS[d.assessment])
       .attr('stroke', NATIONWIDE_BLUE)
       .attr('stroke-width', 2)
@@ -252,14 +252,14 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
         d3.select(event.target)
           .transition()
           .duration(200)
-          .attr('r', 12);
+          .attr('r', 14);
       })
       .on('mouseleave', (event) => {
         setHoveredTool(null);
         d3.select(event.target)
           .transition()
           .duration(200)
-          .attr('r', 8);
+          .attr('r', 10);
       })
       .on('click', (_, d) => {
         setSelectedTool(d);
