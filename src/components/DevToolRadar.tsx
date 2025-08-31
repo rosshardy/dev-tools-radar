@@ -52,6 +52,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
   const [selectedTool, setSelectedTool] = useState<Tool | null>(null);
   const [hoveredTool, setHoveredTool] = useState<Tool | null>(null);
   const [positionedTools, setPositionedTools] = useState<ToolWithPosition[]>([]);
+  const [hoveredFromList, setHoveredFromList] = useState<string | null>(null);
 
   // Use fixed coordinate system for viewBox (will be scaled by container)
   const viewBoxWidth = 1000;
@@ -134,6 +135,12 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     const tools = toolsData as Tool[];
     return positionTools(tools);
   }, [positionTools]);
+
+  // Memoize alphabetically sorted tools for the tool list
+  const alphabeticalTools = useMemo(() => {
+    const tools = toolsData as Tool[];
+    return [...tools].sort((a, b) => a.title.localeCompare(b.title));
+  }, []);
 
   useEffect(() => {
     setPositionedTools(memoizedPositionedTools);
@@ -272,10 +279,11 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     blips.append('circle')
       .attr('cx', d => d.position.x)
       .attr('cy', d => d.position.y)
-      .attr('r', 10)
+      .attr('r', d => (hoveredFromList === d.id || selectedTool?.id === d.id) ? 14 : 10)
       .attr('fill', d => RING_COLORS[d.assessment])
       .attr('stroke', NATIONWIDE_BLUE)
-      .attr('stroke-width', 2)
+      .attr('stroke-width', d => (hoveredFromList === d.id || selectedTool?.id === d.id) ? 3 : 2)
+      .attr('opacity', d => hoveredFromList && hoveredFromList !== d.id ? 0.3 : 1)
       .on('mouseenter', (event, d) => {
         setHoveredTool(d);
         d3.select(event.target)
@@ -306,11 +314,53 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       .attr('pointer-events', 'none')
       .text((_, i) => i + 1);
 
-  }, [positionedTools, centerX, centerY, ringRadii, maxRadius]);
+  }, [positionedTools, centerX, centerY, ringRadii, maxRadius, hoveredFromList, selectedTool]);
+
+  const handleToolListHover = (toolId: string | null) => {
+    setHoveredFromList(toolId);
+    if (toolId) {
+      const tool = positionedTools.find(t => t.id === toolId);
+      if (tool) {
+        setHoveredTool(tool);
+      }
+    } else {
+      setHoveredTool(null);
+    }
+  };
+
+  const handleToolListClick = (toolId: string) => {
+    const tool = positionedTools.find(t => t.id === toolId);
+    if (tool) {
+      setSelectedTool(tool);
+    }
+  };
 
   return (
     <div className={`dev-tool-radar ${className || ''}`}>
       <div className="radar-container">
+        <div className="tool-list-panel">
+          <div className="tool-list-header">
+            <h4>Tools</h4>
+          </div>
+          <div className="tool-list-content">
+            {alphabeticalTools.map((tool) => (
+              <div 
+                key={tool.id}
+                className={`tool-list-item ${
+                  selectedTool?.id === tool.id ? 'selected' : ''
+                } ${
+                  hoveredFromList === tool.id ? 'hovered' : ''
+                }`}
+                onMouseEnter={() => handleToolListHover(tool.id)}
+                onMouseLeave={() => handleToolListHover(null)}
+                onClick={() => handleToolListClick(tool.id)}
+              >
+                {tool.title}
+              </div>
+            ))}
+          </div>
+        </div>
+        
         <div className="radar-panel">
           <svg
             ref={svgRef}
