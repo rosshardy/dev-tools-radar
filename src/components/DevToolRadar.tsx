@@ -6,16 +6,16 @@ import './DevToolRadar.css';
 
 const NATIONWIDE_BLUE = '#003f7f';
 const RING_COLORS = {
-  adopt: '#001a33',      // Darkest (innermost)
-  trial: '#002a52',      // Dark
-  evaluate: '#003f7f',   // Medium (main Nationwide blue)
+  adopt: '#22c55e',      // Green
+  trial: '#fbbf24',      // Yellow
+  evaluate: '#fb923c',   // Yellow-orange
   aware: '#4d7ba3'       // Lightest (outermost)
 };
 
 const RING_FILL_COLORS = {
-  adopt: 'rgba(0, 26, 51, 0.15)',      // Darkest blue fill (innermost)
-  trial: 'rgba(0, 42, 82, 0.12)',      // Dark blue fill
-  evaluate: 'rgba(0, 63, 127, 0.09)',  // Medium blue fill
+  adopt: 'rgba(34, 197, 94, 0.15)',    // Green fill (innermost)
+  trial: 'rgba(251, 191, 36, 0.12)',   // Yellow fill
+  evaluate: 'rgba(251, 146, 60, 0.09)', // Yellow-orange fill
   aware: 'rgba(77, 123, 163, 0.06)'    // Lightest blue fill (outermost)
 };
 
