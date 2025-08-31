@@ -300,20 +300,35 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       .attr('stroke-width', d => (hoveredFromList === d.id || selectedTool?.id === d.id) ? 3 : 2)
       .attr('opacity', d => hoveredFromList && hoveredFromList !== d.id ? 0.3 : 1)
       .on('mouseenter', (event, d) => {
+        // Shrink ALL other blips back to normal size
+        blips.selectAll('circle')
+          .filter((blipData: any) => blipData.id !== d.id)
+          .transition()
+          .duration(200)
+          .attr('r', 10);
+        
         setHoveredTool(d);
         setHoveredFromBlip(d.id);
+        
+        // Scroll the corresponding tool into view in the list
+        const toolListItem = document.querySelector(`[data-tool-id="${d.id}"]`);
+        if (toolListItem) {
+          toolListItem.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'nearest',
+            inline: 'nearest'
+          });
+        }
+        
         d3.select(event.target)
           .transition()
           .duration(200)
           .attr('r', 14);
       })
-      .on('mouseleave', (event) => {
-        setHoveredTool(null);
+      .on('mouseleave', () => {
         setHoveredFromBlip(null);
-        d3.select(event.target)
-          .transition()
-          .duration(200)
-          .attr('r', 10);
+        // Don't reset hoveredTool to null on mouse leave - maintain until next selection
+        // Don't shrink the blip either - maintain size until next selection
       })
       .on('click', (_, d) => {
         setSelectedTool(d);
@@ -339,10 +354,31 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       const tool = positionedTools.find(t => t.id === toolId);
       if (tool) {
         setHoveredTool(tool);
+        
+        // Update blip sizes - shrink all others and enlarge current
+        if (svgRef.current) {
+          const svg = d3.select(svgRef.current);
+          const blips = svg.selectAll('.blip');
+          
+          // Shrink ALL other blips back to normal size
+          blips.selectAll('circle')
+            .filter((blipData: any) => blipData.id !== toolId)
+            .transition()
+            .duration(200)
+            .attr('r', 10);
+          
+          // Enlarge current blip
+          blips.selectAll('circle')
+            .filter((blipData: any) => blipData.id === toolId)
+            .transition()
+            .duration(200)
+            .attr('r', 14);
+        }
+        
+        setHoveredFromBlip(toolId);
       }
-    } else {
-      setHoveredTool(null);
     }
+    // Don't reset hoveredTool to null on mouse leave - maintain until next selection
   };
 
   const handleToolListClick = (toolId: string) => {
@@ -382,6 +418,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
             {filteredTools.map((tool) => (
               <div 
                 key={tool.id}
+                data-tool-id={tool.id}
                 className={`tool-list-item ${
                   selectedTool?.id === tool.id ? 'selected' : ''
                 } ${
