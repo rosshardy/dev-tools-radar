@@ -54,6 +54,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
   const [positionedTools, setPositionedTools] = useState<ToolWithPosition[]>([]);
   const [hoveredFromList, setHoveredFromList] = useState<string | null>(null);
   const [hoveredFromBlip, setHoveredFromBlip] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   // Use fixed coordinate system for viewBox (will be scaled by container)
   const viewBoxWidth = 1000;
@@ -142,6 +143,19 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     const tools = toolsData as Tool[];
     return [...tools].sort((a, b) => a.title.localeCompare(b.title));
   }, []);
+
+  // Filter tools based on search term
+  const filteredTools = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return alphabeticalTools;
+    }
+    
+    const lowerSearchTerm = searchTerm.toLowerCase();
+    return alphabeticalTools.filter(tool => 
+      tool.title.toLowerCase().includes(lowerSearchTerm) ||
+      tool.description.toLowerCase().includes(lowerSearchTerm)
+    );
+  }, [alphabeticalTools, searchTerm]);
 
   useEffect(() => {
     setPositionedTools(memoizedPositionedTools);
@@ -344,9 +358,18 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
         <div className="tool-list-panel">
           <div className="tool-list-header">
             <h4>Tools</h4>
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Search tools..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+            </div>
           </div>
           <div className="tool-list-content">
-            {alphabeticalTools.map((tool) => (
+            {filteredTools.map((tool) => (
               <div 
                 key={tool.id}
                 className={`tool-list-item ${

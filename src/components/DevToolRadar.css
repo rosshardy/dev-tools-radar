@@ -30,12 +30,39 @@
 }
 
 .tool-list-header h4 {
-  margin: 0;
+  margin: 0 0 12px 0;
   font-size: 16px;
   font-weight: 600;
   color: #003f7f;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.search-container {
+  margin-top: 8px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e5f1ff;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333333;
+  background-color: #ffffff;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: #003f7f;
+  box-shadow: 0 0 0 2px rgba(0, 63, 127, 0.1);
+}
+
+.search-input::placeholder {
+  color: #999999;
+  font-style: italic;
 }
 
 .tool-list-content {
@@ -252,6 +279,11 @@
   
   .tool-list-header {
     padding: 20px 16px 12px 16px;
+  }
+  
+  .search-input {
+    padding: 6px 10px;
+    font-size: 13px;
   }
   
   .tool-list-item {
