@@ -40,24 +40,28 @@ const hashCode = (str: string): number => {
 };
 
 interface DevToolRadarProps {
-  width?: number;
-  height?: number;
+  aspectRatio?: number; // width/height ratio, defaults to 1.67 (5:3)
+  className?: string;
 }
 
 export const DevToolRadar: React.FC<DevToolRadarProps> = ({ 
-  width = 600, 
-  height = 600 
+  aspectRatio = 5/3, // 5:3 aspect ratio by default
+  className
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [selectedTool, setSelectedTool] = useState<Tool | null>(null);
   const [hoveredTool, setHoveredTool] = useState<Tool | null>(null);
   const [positionedTools, setPositionedTools] = useState<ToolWithPosition[]>([]);
 
+  // Use fixed coordinate system for viewBox (will be scaled by container)
+  const viewBoxWidth = 1000;
+  const viewBoxHeight = viewBoxWidth / aspectRatio;
+  
   // For single quadrant, we need different positioning
   // The quadrant should fit entirely within the available space
   const margin = 40;
-  const availableWidth = width - margin * 2;
-  const availableHeight = height - margin * 2;
+  const availableWidth = viewBoxWidth - margin * 2;
+  const availableHeight = viewBoxHeight - margin * 2;
   const maxRadius = Math.min(availableWidth, availableHeight);
   
   // Position the "center" (corner of our quadrant) so the quadrant fits in the pane
@@ -301,14 +305,14 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
   }, [positionedTools, centerX, centerY, ringRadii, maxRadius]);
 
   return (
-    <div className="dev-tool-radar">
+    <div className={`dev-tool-radar ${className || ''}`}>
       <div className="radar-container">
         <div className="radar-panel">
           <svg
             ref={svgRef}
-            width={width}
-            height={height}
+            viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
             className="radar-svg"
+            preserveAspectRatio="xMidYMid meet"
           />
         </div>
         

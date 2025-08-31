@@ -13,7 +13,7 @@ const App: React.FC = () => {
       justifyContent: 'center'
     }}>
       <div style={{ maxWidth: '1200px', width: '100%' }}>
-        <DevToolRadar width={1000} height={600} />
+        <DevToolRadar />
       </div>
     </div>
   );
