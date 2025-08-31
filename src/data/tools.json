@@ -1,0 +1,86 @@
+[
+  {
+    "id": "react",
+    "title": "React",
+    "description": "A JavaScript library for building user interfaces. React makes it painless to create interactive UIs with a component-based architecture.",
+    "url": "https://reactjs.org/",
+    "assessment": "adopt"
+  },
+  {
+    "id": "typescript",
+    "title": "TypeScript",
+    "description": "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
+    "url": "https://www.typescriptlang.org/",
+    "assessment": "adopt"
+  },
+  {
+    "id": "vue",
+    "title": "Vue.js",
+    "description": "The Progressive JavaScript Framework. An incrementally adoptable ecosystem that scales between a library and a full-featured framework.",
+    "url": "https://vuejs.org/",
+    "assessment": "trial"
+  },
+  {
+    "id": "svelte",
+    "title": "Svelte",
+    "description": "Cybernetically enhanced web apps. A radical new approach to building user interfaces with compile-time optimizations.",
+    "url": "https://svelte.dev/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "deno",
+    "title": "Deno",
+    "description": "A modern runtime for JavaScript and TypeScript. Secure by default with built-in TypeScript support.",
+    "url": "https://deno.land/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "bun",
+    "title": "Bun",
+    "description": "Fast all-in-one JavaScript runtime. Bundle, test, and run JavaScript & TypeScript projects with Bun.",
+    "url": "https://bun.sh/",
+    "assessment": "aware"
+  },
+  {
+    "id": "vite",
+    "title": "Vite",
+    "description": "Next generation frontend tooling. Fast build tool with lightning fast HMR and optimized build process.",
+    "url": "https://vitejs.dev/",
+    "assessment": "adopt"
+  },
+  {
+    "id": "turbo",
+    "title": "Turbo",
+    "description": "The high-performance build system for JavaScript and TypeScript codebases. Incremental bundler and build system optimizer.",
+    "url": "https://turbo.build/",
+    "assessment": "trial"
+  },
+  {
+    "id": "astro",
+    "title": "Astro",
+    "description": "The web framework for content-driven websites. Build fast websites with less client-side JavaScript.",
+    "url": "https://astro.build/",
+    "assessment": "evaluate"
+  },
+  {
+    "id": "remix",
+    "title": "Remix",
+    "description": "Full stack web framework focused on web fundamentals and modern UX. Built on React Router with server-side rendering.",
+    "url": "https://remix.run/",
+    "assessment": "trial"
+  },
+  {
+    "id": "qwik",
+    "title": "Qwik",
+    "description": "The HTML-first framework. Designed for the edge with resumability and fine-grained lazy loading.",
+    "url": "https://qwik.builder.io/",
+    "assessment": "aware"
+  },
+  {
+    "id": "solid",
+    "title": "SolidJS",
+    "description": "Simple and performant reactivity for building user interfaces. Fine-grained reactivity with minimal overhead.",
+    "url": "https://www.solidjs.com/",
+    "assessment": "evaluate"
+  }
+]
