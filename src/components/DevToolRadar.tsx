@@ -92,9 +92,20 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
         const angleRandom = ((hash * 7) % 100) / 100 - 0.5; // -0.5 to 0.5
         
         // Add some variation to radius within the ring bounds
-        const minRadius = assessment === 'adopt' ? 0 : 
-          ringRadii[RING_ORDER[RING_ORDER.indexOf(assessment as Assessment) - 1]];
-        const maxRadius = ringRadius;
+        let minRadius, maxRadius;
+        
+        if (assessment === 'aware') {
+          // AWARE tools are positioned in the unlimited space beyond EVALUATE ring
+          minRadius = ringRadii.evaluate;
+          maxRadius = ringRadii.evaluate + (ringRadii.aware - ringRadii.evaluate) * 0.8; // Use 80% of available outer space
+        } else if (assessment === 'adopt') {
+          minRadius = 0;
+          maxRadius = ringRadius;
+        } else {
+          minRadius = ringRadii[RING_ORDER[RING_ORDER.indexOf(assessment as Assessment) - 1]];
+          maxRadius = ringRadius;
+        }
+        
         const randomRadius = minRadius + (maxRadius - minRadius) * (0.3 + radiusRandom * 0.4);
         
         const angle = angleStep * (index + 1) + angleRandom * angleStep * 0.3;
@@ -131,8 +142,10 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     // Create main group
     const g = svg.append('g');
 
-    // Draw filled ring sectors (pie slices) first
-    RING_ORDER.forEach((assessment, index) => {
+    // Draw filled ring sectors (pie slices) first - only for ADOPT, TRIAL, EVALUATE
+    // AWARE space is outside the last ring, so no fill needed
+    const filledRings = RING_ORDER.slice(0, -1); // All except AWARE
+    filledRings.forEach((assessment, index) => {
       const outerRadius = ringRadii[assessment];
       const innerRadius = index === 0 ? 0 : ringRadii[RING_ORDER[index - 1]];
       
@@ -153,7 +166,9 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     });
 
     // Draw quarter circle arcs (top-left quadrant only) - borders
-    RING_ORDER.forEach((assessment) => {
+    // Only draw rings for ADOPT, TRIAL, EVALUATE (not AWARE)
+    const visibleRings = RING_ORDER.slice(0, -1); // All except AWARE
+    visibleRings.forEach((assessment) => {
       const r = ringRadii[assessment];
       // Create arc path for top-left quadrant (90 degrees from -90° to 0°)
       const arcPath = `M ${centerX} ${centerY - r} A ${r} ${r} 0 0 0 ${centerX - r} ${centerY}`;
@@ -167,8 +182,9 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     });
 
     // Draw quadrant boundary lines (only two edges since we have one quadrant)
+    // Extend lines to the edge of the available space, not just to EVALUATE ring
     g.append('line')
-      .attr('x1', centerX - ringRadii.aware)
+      .attr('x1', centerX - maxRadius)
       .attr('y1', centerY)
       .attr('x2', centerX)
       .attr('y2', centerY)
@@ -178,7 +194,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
 
     g.append('line')
       .attr('x1', centerX)
-      .attr('y1', centerY - ringRadii.aware)
+      .attr('y1', centerY - maxRadius)
       .attr('x2', centerX)
       .attr('y2', centerY)
       .attr('stroke', NATIONWIDE_BLUE)
@@ -192,6 +208,9 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       if (assessment === 'adopt') {
         // For the innermost ring, position in the middle of the ring
         labelRadius = ringRadii[assessment] * 0.6;
+      } else if (assessment === 'aware') {
+        // For AWARE, position in the outer area beyond EVALUATE ring
+        labelRadius = ringRadii.evaluate + (maxRadius - ringRadii.evaluate) * 0.4;
       } else {
         // For other rings, position in the middle between inner and outer boundaries
         const innerRadius = ringRadii[RING_ORDER[index - 1]];
