@@ -185,18 +185,50 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       .attr('stroke-width', 2)
       .attr('opacity', 0.8);
 
-    // Draw ring labels (positioned along the diagonal of the quadrant)
-    RING_ORDER.forEach((assessment) => {
-      const r = ringRadii[assessment];
-      // Position labels at 45-degree angle (middle of the quadrant)
+    // Draw ring labels inside their respective ring areas
+    RING_ORDER.forEach((assessment, index) => {
+      let labelRadius;
+      
+      if (assessment === 'adopt') {
+        // For the innermost ring, position in the middle of the ring
+        labelRadius = ringRadii[assessment] * 0.6;
+      } else {
+        // For other rings, position in the middle between inner and outer boundaries
+        const innerRadius = ringRadii[RING_ORDER[index - 1]];
+        const outerRadius = ringRadii[assessment];
+        labelRadius = (innerRadius + outerRadius) / 2;
+      }
+      
+      // Create a subtle text shadow for better readability
+      const textX = centerX - labelRadius * Math.cos(Math.PI / 4);
+      const textY = centerY - labelRadius * Math.sin(Math.PI / 4) + 6;
+      
+      // Background shadow
       g.append('text')
-        .attr('x', centerX - r * Math.cos(Math.PI / 4))
-        .attr('y', centerY - r * Math.sin(Math.PI / 4) + 5)
+        .attr('x', textX + 1)
+        .attr('y', textY + 1)
         .attr('text-anchor', 'middle')
         .attr('font-family', 'Arial, sans-serif')
-        .attr('font-size', '12px')
-        .attr('font-weight', 'bold')
+        .attr('font-size', '16px')
+        .attr('font-weight', '900')
+        .attr('fill', '#ffffff')
+        .attr('opacity', 0.3)
+        .attr('letter-spacing', '1px')
+        .style('text-transform', 'uppercase')
+        .text(RING_LABELS[assessment]);
+      
+      // Main text
+      g.append('text')
+        .attr('x', textX)
+        .attr('y', textY)
+        .attr('text-anchor', 'middle')
+        .attr('font-family', 'Arial, sans-serif')
+        .attr('font-size', '16px')
+        .attr('font-weight', '900')
         .attr('fill', RING_COLORS[assessment])
+        .attr('opacity', 0.5)
+        .attr('letter-spacing', '1px')
+        .style('text-transform', 'uppercase')
         .text(RING_LABELS[assessment]);
     });
 
