@@ -40,11 +40,12 @@
 
 .search-container {
   margin-top: 8px;
+  position: relative;
 }
 
 .search-input {
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px 32px 8px 12px;
   border: 1px solid #e5f1ff;
   border-radius: 6px;
   font-size: 14px;
@@ -63,6 +64,38 @@
 .search-input::placeholder {
   color: #999999;
   font-style: italic;
+}
+
+.search-clear-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: #999999;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  outline: none;
+  line-height: 1;
+  padding: 0;
+}
+
+.search-clear-button:hover {
+  background-color: #003f7f;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.search-clear-button:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 .tool-list-content {
@@ -282,8 +315,15 @@
   }
   
   .search-input {
-    padding: 6px 10px;
+    padding: 6px 28px 6px 10px;
     font-size: 13px;
+  }
+  
+  .search-clear-button {
+    width: 18px;
+    height: 18px;
+    right: 6px;
+    font-size: 12px;
   }
   
   .tool-list-item {

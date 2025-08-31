@@ -366,6 +366,16 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
               />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="search-clear-button"
+                  aria-label="Clear search"
+                  type="button"
+                >
+                  ×
+                </button>
+              )}
             </div>
           </div>
           <div className="tool-list-content">
