@@ -53,6 +53,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
   const [hoveredTool, setHoveredTool] = useState<Tool | null>(null);
   const [positionedTools, setPositionedTools] = useState<ToolWithPosition[]>([]);
   const [hoveredFromList, setHoveredFromList] = useState<string | null>(null);
+  const [hoveredFromBlip, setHoveredFromBlip] = useState<string | null>(null);
 
   // Use fixed coordinate system for viewBox (will be scaled by container)
   const viewBoxWidth = 1000;
@@ -286,6 +287,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       .attr('opacity', d => hoveredFromList && hoveredFromList !== d.id ? 0.3 : 1)
       .on('mouseenter', (event, d) => {
         setHoveredTool(d);
+        setHoveredFromBlip(d.id);
         d3.select(event.target)
           .transition()
           .duration(200)
@@ -293,6 +295,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       })
       .on('mouseleave', (event) => {
         setHoveredTool(null);
+        setHoveredFromBlip(null);
         d3.select(event.target)
           .transition()
           .duration(200)
@@ -349,7 +352,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                 className={`tool-list-item ${
                   selectedTool?.id === tool.id ? 'selected' : ''
                 } ${
-                  hoveredFromList === tool.id ? 'hovered' : ''
+                  hoveredFromList === tool.id || hoveredFromBlip === tool.id ? 'hovered' : ''
                 }`}
                 onMouseEnter={() => handleToolListHover(tool.id)}
                 onMouseLeave={() => handleToolListHover(null)}
