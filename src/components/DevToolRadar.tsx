@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { Tool, ToolWithPosition, Assessment } from '../types/Tool';
 import toolsData from '../data/tools.json';
@@ -64,13 +64,13 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
   const centerX = margin + maxRadius;
   const centerY = margin + maxRadius;
 
-  // Calculate ring radii for the quadrant
-  const ringRadii = {
+  // Calculate ring radii for the quadrant (memoized to prevent re-renders)
+  const ringRadii = useMemo(() => ({
     adopt: maxRadius * 0.25,
     trial: maxRadius * 0.45, 
     evaluate: maxRadius * 0.7,
     aware: maxRadius * 0.95
-  };
+  }), [maxRadius]);
 
   // Position tools without overlap (single quadrant)
   const positionTools = useCallback((tools: Tool[]): ToolWithPosition[] => {
@@ -125,13 +125,15 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     return positioned;
   }, [centerX, centerY, ringRadii]);
 
-  useEffect(() => {
+  // Memoize positioned tools to prevent unnecessary recalculations
+  const memoizedPositionedTools = useMemo(() => {
     const tools = toolsData as Tool[];
-    const newPositions = positionTools(tools);
-    
-    // Only update if positions actually changed (though with deterministic positioning, they shouldn't)
-    setPositionedTools(newPositions);
+    return positionTools(tools);
   }, [positionTools]);
+
+  useEffect(() => {
+    setPositionedTools(memoizedPositionedTools);
+  }, [memoizedPositionedTools]);
 
   useEffect(() => {
     if (!svgRef.current || positionedTools.length === 0) return;
@@ -296,7 +298,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
       .attr('pointer-events', 'none')
       .text((_, i) => i + 1);
 
-  }, [positionedTools, centerX, centerY, maxRadius]);
+  }, [positionedTools, centerX, centerY, ringRadii, maxRadius]);
 
   return (
     <div className="dev-tool-radar">
