@@ -145,8 +145,12 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
 
-    // Create main group
-    const g = svg.append('g');
+    // Create main group with horizontal centering transform
+    // Calculate the horizontal offset to center the radar quadrant
+    const radarWidth = maxRadius; // The quadrant extends maxRadius to the left
+    const horizontalOffset = (viewBoxWidth - radarWidth) / 2 - margin;
+    const g = svg.append('g')
+      .attr('transform', `translate(${horizontalOffset}, 0)`);
 
     // Draw filled ring sectors (pie slices) first - only for ADOPT, TRIAL, EVALUATE
     // AWARE space is outside the last ring, so no fill needed
