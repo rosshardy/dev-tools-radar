@@ -71,6 +71,21 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
+.category-box.backlog {
+  background-color: transparent;
+  border: 3px dotted #4d7ba3;
+}
+
+.category-box.backlog:hover {
+  background-color: transparent;
+  border-color: #3a5f82;
+}
+
+.category-box.backlog .category-title {
+  color: #4d7ba3;
+  text-shadow: none;
+}
+
 .category-title {
   color: white;
   font-size: 18px;

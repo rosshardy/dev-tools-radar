@@ -14,7 +14,7 @@ const CATEGORY_LABELS = {
   adopt: 'Recommend Adoption',
   trial: 'Internal Trial', 
   evaluate: 'Under Evaluation',
-  aware: 'Backlog'
+  aware: 'In Backlog'
 };
 
 const CATEGORY_ORDER: Assessment[] = ['aware', 'evaluate', 'trial', 'adopt'];
@@ -62,8 +62,8 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
             {CATEGORY_ORDER.map((category, index) => (
               <div key={category} className="category-container">
                 <div 
-                  className="category-box"
-                  style={{ backgroundColor: CATEGORY_COLORS[category] }}
+                  className={`category-box ${category === 'aware' ? 'backlog' : ''}`}
+                  style={{ backgroundColor: category === 'aware' ? 'transparent' : CATEGORY_COLORS[category] }}
                 >
                   <h3 className="category-title">{CATEGORY_LABELS[category]}</h3>
                   <div className="tools-container">
