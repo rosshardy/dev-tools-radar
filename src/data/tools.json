@@ -43,7 +43,7 @@
     "title": "Codeium",
     "description": "Free AI-powered code completion and chat assistant. Supports 70+ programming languages with fast inference.",
     "url": "https://codeium.com/",
-    "assessment": "trial",
+    "assessment": "aware",
     "ourPosition": "Impressive free alternative to paid solutions. Worth trialing for teams looking to experiment with AI coding assistance.",
     "aiPosition": "Codeium offers compelling value as a free AI coding assistant with competitive features. Its extensive language support and fast inference make it an attractive option for developers seeking AI assistance without subscription costs. The tool's performance rivals paid alternatives in many scenarios.",
     "reviewer": {
@@ -82,7 +82,7 @@
     "title": "Replit Ghostwriter",
     "description": "AI pair programmer built into Replit's online IDE. Provides code completion, generation, and debugging assistance.",
     "url": "https://replit.com/site/ghostwriter",
-    "assessment": "trial",
+    "assessment": "aware",
     "ourPosition": "Good integration with Replit environment. Useful for teams already using Replit for development and prototyping.",
     "aiPosition": "Replit Ghostwriter benefits from tight integration with the Replit platform, offering seamless AI assistance within the browser-based development environment. While limited to the Replit ecosystem, it provides good value for teams focused on rapid prototyping and collaborative coding sessions.",
     "reviewer": {
@@ -147,7 +147,7 @@
     "title": "Aider",
     "description": "AI pair programming in your terminal. Uses GPT to help edit code in your existing git repository.",
     "url": "https://aider.chat/",
-    "assessment": "evaluate",
+    "assessment": "aware",
     "ourPosition": "Interesting terminal-based approach. Appeals to developers who prefer command-line workflows.",
     "aiPosition": "Aider provides a unique terminal-based approach to AI pair programming, integrating directly with git workflows. Its command-line interface appeals to developers who prefer terminal-based development but may limit adoption among teams preferring GUI-based tools. The git integration is particularly thoughtful.",
     "reviewer": {
@@ -199,7 +199,7 @@
     "title": "IntelliCode",
     "description": "AI-assisted development in Visual Studio and VS Code. Provides intelligent suggestions based on context.",
     "url": "https://visualstudio.microsoft.com/services/intellicode/",
-    "assessment": "trial",
+    "assessment": "aware",
     "ourPosition": "Microsoft's integrated AI approach. Good for teams heavily invested in Microsoft development tools.",
     "aiPosition": "IntelliCode represents Microsoft's approach to integrating AI into their development ecosystem. While not as advanced as newer dedicated AI coding assistants, it provides solid context-aware suggestions and integrates seamlessly with Visual Studio and VS Code for teams already using Microsoft's development stack.",
     "reviewer": {
@@ -238,7 +238,7 @@
     "title": "ChatGPT Code Interpreter",
     "description": "Advanced coding environment within ChatGPT. Execute code, analyze data, and create applications interactively.",
     "url": "https://openai.com/blog/chatgpt-plugins",
-    "assessment": "trial",
+    "assessment": "aware",
     "ourPosition": "Interesting for data analysis and prototyping. Limited by sandbox environment but useful for exploration.",
     "aiPosition": "ChatGPT Code Interpreter offers a unique approach to AI-assisted coding by providing an interactive environment for code execution and data analysis. While limited by its sandbox nature, it excels at exploratory programming, data analysis, and rapid prototyping tasks that benefit from immediate feedback and visualization.",
     "reviewer": {
@@ -251,7 +251,7 @@
     "title": "Google Bard",
     "description": "Google's conversational AI that can generate, debug, and explain code across multiple programming languages.",
     "url": "https://bard.google.com/",
-    "assessment": "evaluate",
+    "assessment": "aware",
     "ourPosition": "Google's general AI with coding capabilities. Needs evaluation against specialized coding tools.",
     "aiPosition": "Google Bard offers coding assistance as part of its general AI capabilities. While not specialized for development like dedicated coding assistants, it provides good general programming help and benefits from Google's search integration. However, it may lack the depth of specialized tools for complex coding tasks.",
     "reviewer": {
@@ -264,7 +264,7 @@
     "title": "Phind",
     "description": "AI search engine for developers. Get instant answers to coding questions with code examples and explanations.",
     "url": "https://www.phind.com/",
-    "assessment": "trial",
+    "assessment": "aware",
     "ourPosition": "Excellent for developer-focused search and problem-solving. Good complement to other AI coding tools.",
     "aiPosition": "Phind specializes in developer-focused AI search, providing contextual answers to programming questions with relevant code examples. Its strength lies in problem-solving and learning rather than direct code generation, making it a valuable complementary tool to traditional coding assistants for research and troubleshooting.",
     "reviewer": {
@@ -290,7 +290,7 @@
     "title": "Codiga",
     "description": "AI-powered static code analysis and code review platform. Automated security and quality checks.",
     "url": "https://www.codiga.io/",
-    "assessment": "evaluate",
+    "assessment": "aware",
     "ourPosition": "Focuses on code quality and security rather than generation. Could complement other AI coding tools.",
     "aiPosition": "Codiga takes a different approach to AI in development by focusing on code quality, security analysis, and automated reviews rather than code generation. This positions it as a complementary tool to generative AI assistants, addressing the important aspects of code maintenance and security.",
     "reviewer": {
