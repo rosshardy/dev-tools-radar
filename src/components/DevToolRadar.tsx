@@ -101,9 +101,6 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
           {selectedTool ? (
             <div className="tool-details">
               <h3>{selectedTool.title}</h3>
-              <div className="assessment-badge" data-assessment={selectedTool.assessment}>
-                {CATEGORY_LABELS[selectedTool.assessment]}
-              </div>
               <p>{selectedTool.description}</p>
               <a 
                 href={selectedTool.url} 
@@ -117,9 +114,6 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
           ) : hoveredTool ? (
             <div className="tool-preview">
               <h4>{hoveredTool.title}</h4>
-              <div className="assessment-badge" data-assessment={hoveredTool.assessment}>
-                {CATEGORY_LABELS[hoveredTool.assessment]}
-              </div>
               <p className="preview-text">Click to see full details</p>
             </div>
           ) : (
