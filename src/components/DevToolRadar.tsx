@@ -11,10 +11,10 @@ const CATEGORY_COLORS = {
 };
 
 const CATEGORY_LABELS = {
-  adopt: 'Adopt',
-  trial: 'Trial', 
-  evaluate: 'Evaluate',
-  aware: 'Aware'
+  adopt: 'Recommend Adoption',
+  trial: 'Internal Trial', 
+  evaluate: 'Under Evaluation',
+  aware: 'Backlog'
 };
 
 const CATEGORY_ORDER: Assessment[] = ['aware', 'evaluate', 'trial', 'adopt'];
