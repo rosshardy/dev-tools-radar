@@ -74,13 +74,27 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                           selectedTool?.id === tool.id ? 'selected' : ''
                         } ${
                           hoveredTool?.id === tool.id ? 'hovered' : ''
+                        } ${
+                          tool.reviewer ? 'has-reviewer' : ''
                         }`}
                         onMouseEnter={() => handleToolHover(tool)}
                         onMouseLeave={() => handleToolHover(null)}
                         onClick={() => handleToolClick(tool)}
                         title={tool.description}
                       >
-                        {tool.title}
+                        <span className="tool-title">{tool.title}</span>
+                        {tool.reviewer && (
+                          <div className="reviewer-tag">
+                            <img 
+                              src={tool.reviewer.photoUrl} 
+                              alt={tool.reviewer.name}
+                              className="reviewer-portrait"
+                              onError={(e) => {
+                                e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMTAiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgNkM3LjEwNDU3IDYgOCA1LjEwNDU3IDggNEM4IDIuODk1NDMgNy4xMDQ1NyAyIDYgMkM0Ljg5NTQzIDIgNCAyLjg5NTQzIDQgNEM0IDUuMTA0NTcgNC44OTU0MyA2IDYgNloiIGZpbGw9IiM5QjlCQTQiLz4KPHBhdGggZD0iTTYgN0M0Ljc1IDcgMi44NzUgNy43NSAyIDkuMjVWMTBIMTBWOS4yNUM5LjEyNSA3Ljc1IDcuMjUgNyA2IDdaIiBmaWxsPSIjOUI5QkE0Ii8+Cjwvc3ZnPgo8L3N2Zz4K';
+                              }}
+                            />
+                          </div>
+                        )}
                       </button>
                     ))}
                   </div>

@@ -104,6 +104,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  position: relative;
 }
 
 .tool-pill:hover {
@@ -120,6 +122,40 @@
   background-color: #003f7f;
   transform: scale(1.05);
   box-shadow: 0 2px 8px rgba(0, 63, 127, 0.3);
+}
+
+.tool-pill.has-reviewer {
+  padding-right: 8px;
+}
+
+.tool-title {
+  display: inline-block;
+}
+
+.reviewer-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reviewer-portrait {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+  background-color: #f3f4f6;
+}
+
+.tool-pill:hover .reviewer-portrait {
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.tool-pill.selected .reviewer-portrait {
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .flow-arrow {
@@ -506,6 +542,16 @@
   .tool-pill {
     padding: 4px 10px;
     font-size: 12px;
+    gap: 6px;
+  }
+  
+  .tool-pill.has-reviewer {
+    padding-right: 6px;
+  }
+  
+  .reviewer-portrait {
+    width: 14px;
+    height: 14px;
   }
 }
 
