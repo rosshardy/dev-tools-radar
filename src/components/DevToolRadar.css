@@ -277,6 +277,33 @@
   border-left: 4px solid #22c55e;
 }
 
+.position-reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5f1ff;
+  font-size: 12px;
+}
+
+.position-reviewer-info .reviewer-photo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.position-reviewer-info .reviewer-name {
+  font-weight: 600;
+  color: #333333;
+}
+
+.position-reviewer-info .reviewer-label {
+  color: #666666;
+  font-weight: 400;
+}
+
 .ai-position-box {
   border-left: 4px solid #6366f1;
 }

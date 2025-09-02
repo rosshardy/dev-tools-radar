@@ -128,6 +128,20 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                     <div className="field-box position-box">
                       <h4 className="field-title">Our Position</h4>
                       <p className="field-content">{selectedTool.ourPosition}</p>
+                      {selectedTool.reviewer && (
+                        <div className="position-reviewer-info">
+                          <img 
+                            src={selectedTool.reviewer.photoUrl} 
+                            alt={selectedTool.reviewer.name}
+                            className="reviewer-photo"
+                            onError={(e) => {
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOUI5QkE0Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjUgMTQgNS43NSAxNS41IDQgMTguNVYyMEgyMFYxOC41QzE4LjI1IDE1LjUgMTQuNSAxNCAxMiAxNFoiIGZpbGw9IiM5QjlCQTQiLz4KPHN2Zz4KPHN2Zz4K';
+                            }}
+                          />
+                          <span className="reviewer-name">{selectedTool.reviewer.name}</span>
+                          <span className="reviewer-label">Reviewer</span>
+                        </div>
+                      )}
                     </div>
                   )}
 
@@ -138,23 +152,6 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                     </div>
                   )}
                 </div>
-
-                {selectedTool.reviewer && (
-                  <div className="reviewer-box">
-                    <div className="reviewer-info">
-                      <img 
-                        src={selectedTool.reviewer.photoUrl} 
-                        alt={selectedTool.reviewer.name}
-                        className="reviewer-photo"
-                        onError={(e) => {
-                          e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGM0Y0RjYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSIjOUI5QkE0Ii8+CjxwYXRoIGQ9Ik0xMiAxNEM5LjUgMTQgNS43NSAxNS41IDQgMTguNVYyMEgyMFYxOC41QzE4LjI1IDE1LjUgMTQuNSAxNCAxMiAxNFoiIGZpbGw9IiM5QjlCQTQiLz4KPHN2Zz4KPHN2Zz4K';
-                        }}
-                      />
-                      <span className="reviewer-name">{selectedTool.reviewer.name}</span>
-                      <span className="reviewer-label">Reviewer</span>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           ) : (
