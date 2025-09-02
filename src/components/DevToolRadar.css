@@ -33,7 +33,7 @@
   justify-content: center;
   background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
   overflow: hidden;
-  padding: 20px;
+  padding: 10px;
 }
 
 .category-flow {
@@ -190,7 +190,7 @@
 
 .details-panel {
   grid-area: details;
-  padding: 32px;
+  padding: 0 32px;
   background: #ffffff;
   border-top: 1px solid #e5f1ff;
   display: flex;
