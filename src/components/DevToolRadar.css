@@ -128,10 +128,7 @@
   transform: scale(1.02);
 }
 
-.tool-pill.hovered {
-  background-color: #555555;
-  transform: scale(1.02);
-}
+
 
 .tool-pill.selected {
   background-color: #003f7f;
@@ -326,13 +323,7 @@
   letter-spacing: 0.5px;
 }
 
-.tool-preview h4 {
-  margin: 0 0 12px 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #003f7f;
-  line-height: 1.2;
-}
+
 
 .placeholder h4 {
   margin: 0 0 16px 0;
@@ -377,13 +368,7 @@
   color: #333333;
 }
 
-.preview-text {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #666666;
-  font-style: italic;
-}
+
 
 .placeholder p {
   margin: 0 0 24px 0;

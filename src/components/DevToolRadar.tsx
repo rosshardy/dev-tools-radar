@@ -27,7 +27,6 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
   className
 }) => {
   const [selectedTool, setSelectedTool] = useState<Tool | null>(null);
-  const [hoveredTool, setHoveredTool] = useState<Tool | null>(null);
 
   // Group tools by assessment category and sort alphabetically
   const toolsByCategory = useMemo(() => {
@@ -50,10 +49,6 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
     setSelectedTool(tool);
   };
 
-  const handleToolHover = (tool: Tool | null) => {
-    setHoveredTool(tool);
-  };
-
   return (
     <div className={`dev-tool-radar ${className || ''}`}>
       <div className="radar-container">
@@ -73,12 +68,8 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                         className={`tool-pill ${
                           selectedTool?.id === tool.id ? 'selected' : ''
                         } ${
-                          hoveredTool?.id === tool.id ? 'hovered' : ''
-                        } ${
                           tool.reviewer ? 'has-reviewer' : ''
                         }`}
-                        onMouseEnter={() => handleToolHover(tool)}
-                        onMouseLeave={() => handleToolHover(null)}
                         onClick={() => handleToolClick(tool)}
                         title={tool.description}
                       >
@@ -165,11 +156,6 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                   </div>
                 )}
               </div>
-            </div>
-          ) : hoveredTool ? (
-            <div className="tool-preview">
-              <h4>{hoveredTool.title}</h4>
-              <p className="preview-text">Click to see full details</p>
             </div>
           ) : (
             <div className="placeholder">
