@@ -122,7 +122,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
                   rel="noopener noreferrer"
                   className="tool-link"
                 >
-                  Learn More →
+                  Product Website →
                 </a>
               </div>
               
@@ -174,18 +174,7 @@ export const DevToolRadar: React.FC<DevToolRadarProps> = ({
           ) : (
             <div className="placeholder">
               <h4>Development Tool Radar</h4>
-              <p>Hover over or click on a tool to see details</p>
-              <div className="legend">
-                {CATEGORY_ORDER.map(assessment => (
-                  <div key={assessment} className="legend-item">
-                    <div 
-                      className="legend-color" 
-                      style={{ backgroundColor: CATEGORY_COLORS[assessment] }}
-                    />
-                    <span>{CATEGORY_LABELS[assessment]}</span>
-                  </div>
-                ))}
-              </div>
+              <p>Select a tool to see details</p>
             </div>
           )}
         </div>
